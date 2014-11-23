@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+
+<record id="product_vitalpet_form_view" model="ir.ui.view">
+            <field name="name">product.vitpal.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+           
+                <xpath expr="//field[@name='type']" position="before">
+	               
+	           	    <field name='parent_product_id' />
+	           	    <field name='parent_coefficient' attrs="{'invisible':[('parent_product_id','=',False)]}" />
+	           	  
+                </xpath>
+                
+                
+                <xpath expr="//page[@string='Accounting']" position="after">
+	               
+	           	    <page string="MWI Products">
+                                <group >
+                                    <group >
+                                        <field name="active_flag"/>
+                                        <field name="mwi_db_id"/>
+                                        <field name="additional_info"/>
+                                        <field name="available_to_purchase_flag"/>
+                                        <field name="backorder_flag"/>
+                                        <field name="case_qty"/>
+                                        <field name="closeout_flag"/>
+                                        <field name="compendium_code"/>
+                                        <field name="container_qty"/>
+                                        <field name="convert_from_mwi"/>
+                                        <field name="cooler_item_flag"/>
+                                        <field name="deacontrolled_substance_code"/>
+                                        <field name="doses"/>
+                                        <field name="dropship_flag"/>
+                                        <field name="dropship_text"/>
+                                        <field name="has_image"/>
+                                        <field name="has_purchased"/>
+                                        <field name="has_relationship"/>
+                                        <field name="hazardous"/>
+                                        <field name="hazardous_text"/>
+                                        <field name="human_label_flag"/>
+                                        <field name="labelfee_flag"/>
+                                        <field name="manufacturer"/>
+                                     </group>
+                                     <group>
+                                        <field name="manufacturer_id"/>
+                                        <field name="manu_minorder_fee"/>
+                                        <field name="manu_minorder_weight"/>
+                                        <field name="mfgproductcode"/>
+                                        <field name="qtymultiplier"/>
+                                        <field name="rx_flag"/>
+                                        <field name="searchableflag"/>
+                                        <field name="searchterms"/>
+                                        <field name="showpricingflag"/>
+                                        <field name="specialorderflag"/>
+                                        <field name="specialordertext"/>
+                                        <field name="unit"/>
+                                        <field name="web_description"/>
+                                        <field name="minqty"/>
+                                        <field name="msdc_code"/>
+                                        <field name="newproductflag"/>
+                                        <field name="newproducttext"/>
+                                        <field name="nonreturnable"/>
+                                        <field name="nonreturnable_text"/>
+                                        <field name="product_code"/>
+                                        <field name="productdimwgt"/>
+                                        <field name="product_price"/>
+                                        <field name="description"/>
+                                        <field name="discontinued_flag"/>
+                                        <field name="act_ingrediants"/>
+                                       
+                                        
+                                        
+                                    </group>
+                                    
+                                </group>
+                                
+                            </page>
+	           	  
+                </xpath>
+            </field>
+   		</record>
+
+
+<record id="product_vitalpet_supplier_form_view" model="ir.ui.view">
+            <field name="name">product.vitpal.supplier.form</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+            <field name="arch" type="xml">
+           
+                <xpath expr="//field[@name='sequence']" position="after">
+	               
+	           	    <field name='supplier_uom' />
+	           	  
+                </xpath>
+                
+                
+                
+            </field>
+   		</record>
+   		
+   		<record id="product_vitpal_supplierinfo_tree_view" model="ir.ui.view">
+            <field name="name">product.vitpal.supplierinfo.tree.view</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+	               
+	           	    <field name='supplier_uom' />
+	           	  
+                </xpath>
+            </field>
+        </record>
+   		
+
+
+</data></openerp>
